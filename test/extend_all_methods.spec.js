@@ -57,5 +57,46 @@ describe('All Method Extention based HOC', () => {
 
       assert(spies.Name === undefined);
     });
+
+    it('can be used as a decorator instead of a chain of function calls', () => {
+      const spies = {};
+      function watchedWrapperFunction(func, funcName) {
+        const mySpy = spies[funcName] = sinon.spy();
+        return () => {
+          mySpy();
+          return func.apply(this, arguments);
+        };
+      }
+
+      @allMethodsComposer(watchedWrapperFunction)
+      class DecoratedClass {
+        constructor(name = '') {
+          this._name = name;
+        }
+        get Name() {
+          return this._name;
+        }
+        doSomeCalculation(x, y) {
+          return x * y;
+        }
+        doSomethingIllegal() {
+          throw new Error('Oh no!');
+        }
+      }
+
+      const instance = new DecoratedClass();
+
+      instance.doSomeCalculation(1, 2);
+      expect(spies.doSomeCalculation).to.be.a('function');
+      expect(spies.doSomeCalculation.should.have.been.called);
+
+      expect(() => {
+        instance.doSomethingIllegal();
+      }).to.throw(Error);
+      expect(spies.doSomethingIllegal).to.be.a('function');
+      expect(spies.doSomethingIllegal.should.have.been.called);
+
+      assert(spies.Name === undefined);
+    });
   });
 });
