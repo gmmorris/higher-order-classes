@@ -1,8 +1,10 @@
-# How to Grok Higher Order Classes
 Code examples for my How To Grok Higher Order Classes article, exploring how to approach applying higher order function paradigms against class definitions.
 
 Originaly published on Medium: https://medium.com/p/69452ba6d095/edit
 
+============================================================================================
+
+# How to Grok Higher Order Classes
 One does not simply make up an idiom, so I’ll make it clear, I’m not trying to do that. In fact, in many ways, the goal of this article is to make it clear that there is no such thing as a Higher Order Class, that term is total gibberish, but with the mixture of classical OO terms with functional programming paradigms, I’m now finding that the Javascript ecosystem and it’s accompanying idioms can be a little disorientating for those who don’t have a solid grasp in the language’s fundamentals.
 
 I’m hoping I can help with that a little.
