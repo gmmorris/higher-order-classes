@@ -1,6 +1,7 @@
 import factoryComposer from './composers/factory';
 import constructorComposer from './composers/extend_constructor';
 import allMethodComposer from './composers/extend_all_methods';
+import functionalComposer from './composers/extend_functionaly';
 
 // This is the base class we wish to compose
 // Our different "Higher Order Classes" will attempt to extend this class in different ways
@@ -70,11 +71,9 @@ ret = myVerboseInstance.doSomeCalculation(2, 5);
 console.log(`doSomeCalculation() returned: ${ret}`);
 
 // which allows us to do the following:
+@functionalComposer(verbosify)
 @allMethodComposer(verbosify)
 class ComposableBaseClassUsingDecorator {
-  constructor() {
-
-  }
   doSomeCalculation(x, y) {
     return x * y;
   }
