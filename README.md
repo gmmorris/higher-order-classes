@@ -5,7 +5,7 @@ Originaly published on Medium: https://medium.com/p/69452ba6d095/edit
 ============================================================================================
 
 # How to Grok Higher Order Classes
-One does not simply make up an idiom, so I’ll make it clear, I’m not trying to do that. In fact, in many ways, the goal of this article is to make it clear that there is no such thing as a Higher Order Class, that term is total gibberish, but with the mixture of classical OO terms with functional programming paradigms, I’m now finding that the Javascript ecosystem and it’s accompanying idioms can be a little disorientating for those who don’t have a solid grasp in the language’s fundamentals.
+One does not simply make up an idiom, so I’ll make it clear, I’m not trying to do that. In fact, in many ways, the goal of this article is to make it clear that there is no such thing as a Higher Order Class, that term is total gibberish, but with the mixture of classical OO terms with functional programming paradigms, I’ve heard quite a few Javascript developers expressing some confusion as to how they should approach the patterns they have gotten used to using with JS Objects and Functions when it comes to ES6's new Class definition.
 
 I’m hoping I can help with that a little.
 
@@ -39,7 +39,7 @@ assert(PriceFetcher.getPriceInPounds('7376481') === 100*PriceFetcher.getPriceInP
 ```
 Above you can see an example of the use of a **Higher Order Function**.
 Granted, its a slightly contrived example, but a simple one which expresses the power you can get out of a HOF, for creating generic and reusable code.
-One of the common implementations of this paradigm in Javascript has been one I call the Composing **Higher Order Function**\*.
+One of the common implementations of this paradigm in Javascript has been one I call the **"Composing"** Higher Order Function.
 
 This implementation is a comfortable way to approach applying HOFs to your components, without having to provide different implementations for function based components (such as a constructor function) .
 The simple idea is that the **CHOF** will identify the input it receives and provide suitable wrapper behaviour — a function will be treated as any input to a **HOF**, while an object will have it’s properties cycled through and each function property (in other words, each method) will have the HOF applied to it, essentially recomposing the object with the required functionality.
@@ -78,7 +78,6 @@ const performSomeAction = function() {
 PriceFetcher = attachLogger(PriceFetcher);
 performSomeAction = attachLogger(performSomeAction);
 ```
-\* *Yet again, I stress, this is not an attempt to define a new idiom, this is just me naming something I don’t know any other name for. If anyone wishes to educate me on the right naming for this, I’m all ears.*
 
 ## Higher Order Classes
 This is where **Higher Order Classes** come into the picture.
