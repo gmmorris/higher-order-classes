@@ -8,6 +8,9 @@ Originaly published on Medium: https://medium.com/p/69452ba6d095/edit
 One does not simply make up an idiom, so I’ll make it clear, I’m not trying to do that. In fact, in many ways, the goal of this article is to make it clear that there is no such thing as a Higher Order Class, that term is total gibberish, but with the mixture of classical OO terms with functional programming paradigms, I’ve heard quite a few Javascript developers expressing some confusion as to how they should approach the patterns they have gotten used to using with JS Objects and Functions when it comes to ES6's new Class definition.
 
 I’m hoping I can help with that a little.
+Clearly, this is meant more for Junior / Mid level developers.
+
+**TL/DR** You can apply a Higher Order Function to each method on an ES6 class in a generic way by using the last code snippet in this article. This is useful for adding logging / error handling logic on top of your components.
 
 ## What do you mean by Higher Order Class?
 One of the paradigms of functional programming that is very commonly used in Javascript is that of a **Higher Order Function**, that is, *a function which receives a function as input and returns a function as output*.
