@@ -39,6 +39,7 @@ assert(PriceFetcher.getPriceInPounds('7376481') === 100*PriceFetcher.getPriceInP
 ```
 Above you can see an example of the use of a **Higher Order Function**.
 Granted, its a slightly contrived example, but a simple one which expresses the power you can get out of a HOF, for creating generic and reusable code.
+
 One of the common implementations of this paradigm in Javascript has been one I call the “**Composing**” Higher Order Function.
 This implementation is a sort of an abstraction over a simple HOF, where the case of an object being passed in place of a function (as input to the HOF) will cause the function to apply itself to each property on that object, rather than the object itself.
 Essentially the Higher Order Function will recompose the object with the required functionality, instead of simply “wrapping” an input function.
